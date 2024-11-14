@@ -5,18 +5,26 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Person os = new();
-            user us = new();
 
-            os.Welcome();
-            var os3 = Person.mapuser(us);
+            Console.WriteLine("klasa Osoba");
+            var os = new Osoba("Ola", "strudel", 20, "s33452");
+            os.PrzedstawSie();
 
-            os3.Welcome();
-            Console.WriteLine($"Hello, World!");
+            Console.WriteLine("klasa licz");
+            var moj_licz = new Licz(5);
+            moj_licz.displayvalue();
+            moj_licz.dodaj(10);
+            moj_licz.displayvalue();
+            moj_licz.odejmij(2);
+            moj_licz.displayvalue();
 
-            var sum = new Sumator(new[] { 6, 4, 3, 2 });
-
+            Console.WriteLine("klasa sumator");
+            var sum = new Sumator(new[] { 6, 4, 3, 3 });
+            Console.WriteLine(sum.Sum());
+            Console.WriteLine(sum.SumDiv3());
+            Console.WriteLine(sum.Count());
             sum.Display(1,2);
+
 
         }
     }
