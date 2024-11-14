@@ -13,6 +13,11 @@ namespace ConsoleApp2
 
             os3.Welcome();
             Console.WriteLine($"Hello, World!");
+
+            var sum = new Sumator(new[] { 6, 4, 3, 2 });
+
+            sum.Display(1,2);
+
         }
     }
 }
