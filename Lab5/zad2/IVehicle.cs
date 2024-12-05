@@ -24,7 +24,24 @@ namespace Lab5.zad2
         }
         public void start()
         {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class bike : IVehicle
+    {
+        public int maxSpeed { get; set; }
+
+        public void stop()
+        {
             throw new Exception("text chamulec");
+        }
+        public void start()
+        {
+            if (maxSpeed < 0)
+                throw new NotImplementedException();
+            else
+                Console.WriteLine("Abc");
         }
     }
 

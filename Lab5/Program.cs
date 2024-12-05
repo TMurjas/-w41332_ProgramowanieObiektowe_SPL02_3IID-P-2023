@@ -1,4 +1,5 @@
 ﻿using lab5.myClass;
+using Lab5.zad_przy;
 using Lab5.zad2;
 
 namespace Lab5
@@ -18,9 +19,23 @@ namespace Lab5
                 item.CalulateArea();
             }
 
-            MyClass AAA= new MyClass();
+            myClassHelper.screate(5);
+            car mycar= new car();
+            try
 
-            AAA.ToShortDateString();
+            {
+                mycar.start();
+                mycar.stop();
+
+            }
+            catch (NotImplementedException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
 
 
