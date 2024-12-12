@@ -9,5 +9,6 @@ namespace Lab6.zad1.Interface
 {
     internal interface IPersonRepository : IBaseRepository<Person, long>
     {
+
     }
 }
