@@ -45,13 +45,25 @@ namespace projekt
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Globals.userList.Update_name(Globals.UserID, textBox1.Text);
-            Globals.UserName = textBox1.Text;
-            Globals.messageList.Updatename(Globals.UserID, textBox1.Text);
+            var error = false;
+            var message = "";
+            if (Globals.userList.CheekRegystry(textBox1.Text) == true)
+            {
+                message += "This login is already taken \n";
+                error = true;
+            }
+            if (error)
+            { MessageBox.Show(message); }
+            else
+            {
+                Globals.userList.Update_name(Globals.UserID, textBox1.Text);
+                Globals.UserName = textBox1.Text;
+                Globals.messageList.Updatename(Globals.UserID, textBox1.Text);
 
-            Globals.userList.UserSave();
-            MessageBox.Show("Name changed");
-            refresh();
+                Globals.userList.UserSave();
+                MessageBox.Show("Name changed");
+                refresh();
+            }
         }
 
         private void refresh()
