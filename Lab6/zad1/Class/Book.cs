@@ -8,7 +8,7 @@ using Lab6.zad1.Interface;
 
 namespace Lab6.zad1.Class
 {
-    internal class Book : IDataTwo, IEntity<int>
+    public class Book : IDataTwo, IEntity<int>
     {
         public int Id { get; set; }
         public DateTime CreationTime { get; set; }

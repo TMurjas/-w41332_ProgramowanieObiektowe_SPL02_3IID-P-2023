@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab6.zad1.Class
 {
-    internal class PersonRepository
+    public class PersonRepository
     {
         public class MockPersonRepository : IPersonRepository
         {

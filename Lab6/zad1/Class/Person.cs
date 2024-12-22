@@ -7,7 +7,7 @@ using Lab6.zad1.Interface;
 
 namespace Lab6.zad1.Class
 {
-    internal class Person : IDataTwo, IEntity<long>
+    public class Person : IDataTwo, IEntity<long>
     {
         public long Id { get; set; }
         public DateTime CreationTime { get; set; }

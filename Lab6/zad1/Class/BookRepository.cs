@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lab6.zad1.Class
 {
-    internal class BookRepository:IBookRepository
+    public class BookRepository:IBookRepository
     {
         private List<Book> data = new()
         {

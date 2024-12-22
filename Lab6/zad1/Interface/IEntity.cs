@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab6.zad1.Interface
 {
-    internal interface IEntity<T>
+    public interface IEntity<T>
     {
         public T Id { get; set; }
     }
