@@ -47,6 +47,9 @@ namespace projekt
         {
             Globals.userList.Update_name(Globals.UserID, textBox1.Text);
             Globals.UserName = textBox1.Text;
+            Globals.messageList.Updatename(Globals.UserID, textBox1.Text);
+
+            Globals.userList.UserSave();
             MessageBox.Show("Name changed");
             refresh();
         }
@@ -62,6 +65,7 @@ namespace projekt
         private void button4_Click(object sender, EventArgs e)
         {
             Globals.userList.Update_email(Globals.UserID, textBox2.Text);
+            Globals.userList.UserSave();
             MessageBox.Show("Email changed");
             refresh();
         }
@@ -71,6 +75,7 @@ namespace projekt
             if (textBox3.Text == Globals.userList.getUserPassword(Globals.UserID))
             {
                 Globals.userList.Update_password(Globals.UserID, textBox4.Text);
+                Globals.userList.UserSave();
                 refresh();
                 MessageBox.Show("Password changed");
                 textBox3.Text = "";
@@ -88,6 +93,8 @@ namespace projekt
             {
                 Globals.userList.UserDelete(Globals.UserID);
                 Globals.UserID = -666;
+                Globals.userList.UserSave();
+                Globals.messageList.MessagesSave();
                 MessageBox.Show("User deleted");
                 this.Hide();
                 Form_Start temp1 = new Form_Start();

@@ -13,7 +13,7 @@ namespace projekt
         string UserEmail { get; set; }
         int UserID { get; set; }
         static int ID = 0;
-        public Admins(string username, string password,string email) : base(username, password, email)
+        public Admins(string username,string email, string password) : base(username, email, password)
         {        }
     }
 }

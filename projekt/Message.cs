@@ -25,6 +25,17 @@ namespace projekt
             ID++;
         }
 
+        public Message(int myID,int userID, string userName, string message, DateTime data)
+        {
+            this.MessageText = message;
+            this.MessageUserID = userID;
+            this.MessageUserName = userName;
+            this.MessageTime = data;
+            this.MessageID = myID;
+            if (myID >= ID)
+                ID = myID + 1;
+        }
+
 
 
     }

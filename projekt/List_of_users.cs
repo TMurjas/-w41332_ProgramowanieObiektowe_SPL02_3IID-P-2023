@@ -165,6 +165,69 @@ namespace projekt
 
         }
 
+        public void UserSave()
+        {
+            string path = "users.txt";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(path))
+            {
+                foreach (Person user in users)
+                {
+                    file.WriteLine(user.UserID + "\n" + user.Username  + "\n" + user.UserEmail + "\n" + user.Password);
+
+                }
+            }
+        }
+
+        public void UserLoad()
+        {
+            string path = "users.txt";
+
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+
+                }
+            }
+                string[] lines = System.IO.File.ReadAllLines(path);
+
+                var j = 0;
+                int load_UserID = 0;
+                string load_UserName = "";
+                string load_Password = "";
+                string load_UserEmail = "";
+
+                foreach (string line in lines)
+                {
+                    if (j == 0)
+                    {
+                        load_UserID = int.Parse(line);
+                        j++;
+                    }
+                    else if (j == 1)
+                    {
+                        load_UserName = line;
+                        j++;
+                    }
+                    else if (j == 2)
+                    {
+                        
+                        load_UserEmail = line;
+                    j++;
+                    }
+                    else if (j == 3)
+                    {
+                        load_Password = line;
+
+                        Users newUser = new Users(load_UserID, load_UserName, load_UserEmail,load_Password);
+                        users.Add(newUser);
+                        j = 0;
+                    }
+                }
+            
+            
+        }
+
 
 
     }

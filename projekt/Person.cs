@@ -14,13 +14,22 @@ namespace projekt
         public int UserID { get; set; }
 
         
-        public Person(string username, string password, string email)
+        public Person(string username,string email, string password)
         {
             this.Username = username;
-            this.Password = password;
             this.UserEmail = email;
+            this.Password = password;
             this.UserID = Globals.ID;
             Globals.ID++;
+        }
+        public Person(int ID,string username, string email, string password)
+        {
+            this.Username = username;
+            this.UserEmail = email;
+            this.Password = password;
+            this.UserID = ID;
+            if (ID >= Globals.ID)
+                Globals.ID=ID+1;
         }
     }
 }

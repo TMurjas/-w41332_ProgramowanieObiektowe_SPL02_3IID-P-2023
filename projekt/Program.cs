@@ -16,13 +16,9 @@ namespace projekt
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Form_Start login = new Form_Start();
-            Globals.userList.AddUser("admin", "admin", "wsd@wp");
-            Globals.userList.AddUser("user", "user", "wsd@wp");
-            Globals.userList.AddAdmins("admin", "admin", "admin@ad.min");
 
-            Globals.messageList.AddMessage(5, "d", "wsd@wp");
-            Globals.messageList.AddMessage(45, "mamamia", "sdfdddddd");
-            //Globals.messageList.showMessages();
+            Globals.userList.UserLoad();
+            Globals.messageList.MessageLoad();
 
             Application.Run(login);
 

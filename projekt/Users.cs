@@ -10,11 +10,14 @@ namespace projekt
     internal class Users : Person
     {
 
-        public Users(string username, string password, string email) : base(username, password, email)
+        public Users(string username,  string email,string password) : base(username,email, password)
         {
 
         }
+        public Users(int id,string username, string email, string password) : base(id,username, email, password)
+        {
 
+        }
 
     }
 }

@@ -73,6 +73,7 @@ namespace projekt
             else
             {
                 Globals.userList.AddUser(textBox1.Text, textBox2.Text, textBox3.Text);
+                Globals.userList.UserSave();
                 MessageBox.Show("Succes");
                 this.Hide();
                 Form_Start temp1 = new Form_Start();

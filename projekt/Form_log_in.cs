@@ -40,6 +40,7 @@ namespace projekt
 
             Globals.messageList.AddMessage(Globals.UserID, Globals.UserName, textBox2.Text);
             textBox2.Text = "";
+            Globals.messageList.MessagesSave();
             refresh();
 
 
@@ -65,6 +66,11 @@ namespace projekt
             Form_Settings temp1 = new Form_Settings();
             temp1.ShowDialog();
             this.Close();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace projekt
 {
@@ -17,6 +19,19 @@ namespace projekt
             messages.Add(newMessage);
             
         }
+
+        public void Updatename(int ID, string newName)
+        {
+            foreach (Message msg in messages)
+            {
+                if (ID == msg.MessageUserID)
+                {
+                    msg.MessageUserName = newName;
+                    
+                }
+            }
+        }
+  
 
         public void showMessages()
         {
@@ -50,6 +65,71 @@ namespace projekt
                 {
                     messages.RemoveAt(i);
                     i--;
+                }
+            }
+        }
+
+        public void MessagesSave()
+        {
+            string message = "";
+            foreach (Message msg in messages)
+            {
+                message += msg.MessageID + "\n" + msg.MessageUserID.ToString() + "\n" + msg.MessageUserName + "\n" + msg.MessageText + "\n" + msg.MessageTime + "\n";
+            }
+            System.IO.File.WriteAllText("messages.txt", message);
+        }
+
+        public void MessageLoad()
+        {
+            string path = "messages.txt";
+
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+
+                }
+            }
+
+            string[] lines = System.IO.File.ReadAllLines("messages.txt");
+            
+
+            var j=0;
+            int load_MessageID=0;
+            int load_UserID = 0;
+            string load_UserName = "";
+            string load_Message = "";
+            DateTime load_Time = DateTime.Now;
+
+            foreach (string line in lines)
+            {
+                if (j == 0)
+                {
+                    load_MessageID = int.Parse(line);
+                    j++;
+                }
+                else if (j == 1)
+                {
+                    load_UserID = int.Parse(line);
+                    j++;
+                }
+                else if (j == 2)
+                {
+                    load_UserName = line;
+                    j++;
+                }
+                else if (j == 3)
+                {
+                    load_Message = line;
+                    j++;
+                }
+                else if (j == 4)
+                {
+                    load_Time = DateTime.Parse(line);
+
+                    Message newMessage = new Message(load_MessageID, load_UserID, load_UserName, load_Message, load_Time);
+                    messages.Add(newMessage);
+                    j = 0;
                 }
             }
         }
