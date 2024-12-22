@@ -58,5 +58,13 @@ namespace projekt
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Settings temp1 = new Form_Settings();
+            temp1.ShowDialog();
+            this.Close();
+        }
     }
 }

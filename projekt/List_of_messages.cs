@@ -39,5 +39,20 @@ namespace projekt
             
             return message;
         }
+
+        public void allMessagesDelete(int ID)
+        {
+            string message = "";
+
+            for (int i = 0; i < messages.Count; i++)
+            {
+                if (ID == messages[i].MessageUserID)
+                {
+                    messages.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
+
     }
 }

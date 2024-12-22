@@ -35,6 +35,115 @@ namespace projekt
             MessageBox.Show(message);
         }
 
+        public void Update_name(int ID,string newName)
+        {
+            foreach (Person user in users)
+            {
+                if (ID== user.UserID)
+                {
+                    user.Username = newName;
+                    break;
+                }
+
+            }
+        }
+
+        public string getUserPassword(int ID)
+        {
+            var password = "";
+            foreach (Person user in users)
+            {
+                if (ID == user.UserID)
+                {
+                    password = user.Password;
+                    break;
+                }
+            }
+            return password;
+        }
+
+        public void Update_email(int ID, string newEmail)
+        {
+            foreach (Person user in users)
+            {
+                if (ID == user.UserID)
+                {
+                    user.UserEmail = newEmail;
+                    break;
+                }
+
+            }
+        }
+
+        public void Update_password(int ID, string newPassword)
+        {
+            foreach (Person user in users)
+            {
+                if (ID == user.UserID)
+                {
+                    user.Password = newPassword;
+                    break;
+                }
+
+            }
+        }
+
+        public void UserDelete(int ID)
+        {
+            foreach (Person user in users)
+            {
+                if (ID == user.UserID)
+                {
+                    Globals.messageList.allMessagesDelete(ID);
+                    users.Remove(user);
+                    break;
+                }
+
+            }
+        }
+
+        public string getUserName(int ID)
+        {
+            var name = "";
+            foreach (Person user in users)
+            {
+                if (ID == user.UserID)
+                {
+                    name = user.Username;
+                    break;
+                }
+            }
+            return name;   
+        }
+
+        public string getUserEmail(int ID)
+        {
+            var email = "";
+            foreach (Person user in users)
+            {
+                if (ID == user.UserID)
+                {
+                    email = user.UserEmail;
+                    break;
+                }
+            }
+            return email;
+        }
+
+        public bool CheekRegystry(string User)
+        {
+            var error = false;
+            foreach (Person user in users)
+            {
+                if (user.Username == User) 
+                {
+                    error = true;
+                    break;
+                }
+            }
+            return error;
+        }
+
         public void cheek_user(string User,string Password)
         {
             var error = true;

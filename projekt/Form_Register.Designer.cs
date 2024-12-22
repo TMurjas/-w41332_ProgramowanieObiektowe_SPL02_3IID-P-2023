@@ -123,6 +123,7 @@
             Controls.Add(textBox1);
             Name = "Form_Register";
             Text = "Registry";
+            Load += Form_Register_Load;
             ResumeLayout(false);
             PerformLayout();
         }

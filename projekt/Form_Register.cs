@@ -47,6 +47,12 @@ namespace projekt
             var error = false;
             var message = "";
 
+            if (Globals.userList.CheekRegystry(textBox1.Text) == true)
+            {
+                message += "This login is already taken \n";
+                error = true;
+            }
+
             if (textBox1.Text == "")
             {
                 message += "Please enter your login \n";
@@ -63,7 +69,7 @@ namespace projekt
                 error = true;
             }
 
-            if (error){MessageBox.Show(message);}
+            if (error) { MessageBox.Show(message); }
             else
             {
                 Globals.userList.AddUser(textBox1.Text, textBox2.Text, textBox3.Text);
@@ -73,6 +79,11 @@ namespace projekt
                 temp1.ShowDialog();
                 this.Close();
             }
+
+        }
+
+        private void Form_Register_Load(object sender, EventArgs e)
+        {
 
         }
     }
