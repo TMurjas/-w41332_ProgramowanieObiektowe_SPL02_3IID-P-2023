@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab6.zad1.Interface
+namespace Lab8
 {
-    public interface IDataTwo
+    public interface Iconfiguration
     {
-        public DateTime CreationTime { get; set; }
 
     }
 }
